@@ -3,7 +3,7 @@ import { View, StyleSheet, FlatList } from 'react-native';
 
 import ListItem from '../ListItem/ListItem';
 
-const ListInput = (props) => {
+const PlaceList = (props) => {
        
     return(
         <FlatList 
@@ -11,8 +11,9 @@ const ListInput = (props) => {
             data={props.places}
             renderItem={(info)=> (
                 <ListItem 
-                    placeName={info.item.value}
-                    onItemPress={() => props.onItemDeleted(info.item.key)}
+                    placeName={info.item.name}
+                    placeImage={info.item.image}
+                    onItemPress={() => props.onItemSelected(info.item.key)}
                 />
             )}
         />
@@ -25,4 +26,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default ListInput;
+export default PlaceList;
